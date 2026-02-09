@@ -36,20 +36,20 @@ From this folder:
 ## Added Features
 
 1. Input Mapping Layer (input_mapper.py)
-* - * InputMapper class decouples key bindings from game logic
-* - * Actions defined as enums: MOVE_LEFT, MOVE_RIGHT, JUMP, DASH, GROUND_POUND
-* - * Game references actions instead of specific keys → easier to remap controls
+- InputMapper class decouples key bindings from game logic
+- Actions defined as enums: MOVE_LEFT, MOVE_RIGHT, JUMP, DASH, GROUND_POUND
+-  Game references actions instead of specific keys → easier to remap controls
 
 2. Ground Pound Discrete Action
 
-* - * Triggered by G key (KEYDOWN)
-* - * Constraints:
+-  Triggered by G key (KEYDOWN)
+ * Constraints:
         - Only works in platformer mode
         - Must be airborne (cannot ground pound on ground)
         - 1.0-second cooldown
-* - * Applies strong downward velocity (1200.0) when activated
-* - * Debug prints show when action triggers (if F1 enabled)
-* - * Debug Displays Colodown
+-  Applies strong downward velocity (1200.0) when activated
+-  Debug prints show when action triggers (if F1 enabled)
+-  Debug Displays Colodown
 
 ## What to change first
 - Try editing preset values in `input_control_feel/game.py`:
