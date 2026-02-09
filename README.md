@@ -1,9 +1,3 @@
-1. Install dependencies:
-   pip install -r requirements.txt
-
-2. Run the game:
-   python main.py
-
 # Assignment 3
 
 ## Run
@@ -35,24 +29,32 @@ From this folder:
 
 ## Added Features
 
-1. Input Mapping Layer (input_mapper.py)
+1. Input Mapping class (input_mapper.py)
 - InputMapper class decouples key bindings from game logic
-- Actions defined as enums: MOVE_LEFT, MOVE_RIGHT, JUMP, DASH, GROUND_POUND
--  Game references actions instead of specific keys → easier to remap controls
+- Actions defined as enums: MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, JUMP, DASH, GROUND_POUND (input_action.py)
+- Game code reference actions instead of hardcoded keys
+- Refactoring controls can be done easily without any changes to the game code.
 
 2. Ground Pound Discrete Action
-
--  Triggered by G key (KEYDOWN)
- * Constraints:
-        - Only works in platformer mode
-        - Must be airborne (cannot ground pound on ground)
-        - 1.0-second cooldown
+- Triggered by G key (KEYDOWN)
+- Constraints:
+    - Only works in platformer mode
+    - Must be airborne (cannot ground pound on ground)
+    - 1.0-second cooldown
+    - Cannot be triggered while player on teh ground
 -  Applies strong downward velocity (1200.0) when activated
--  Debug prints show when action triggers (if F1 enabled)
--  Debug Displays Colodown
 
-## What to change first
-- Try editing preset values in `input_control_feel/game.py`:
-  - accel / friction / max speed
-  - gravity / jump speed
-- Try changing dash cooldown or dash impulse
+3.  Debug prints show when action triggers (if F1 enabled)
+4.  Debug + Console Displays Ground Pound status  Ready/Cooldown
+5. Control Feel Tuning:
+- Five feel presets in total; three primary presets documented below
+- Each preset changes: acceleration, max speed, friction, gravity, and jump speed
+- Demonstrates distinct gameplay experiences
+
+
+## Control feel tuning
+- `tight`: Very responsive and controlled. The character stops quickly and feels precise.
+- `floaty`: Light and airy movement. The character stays in the air longer and feels softer.
+- `heavy`: Strong and weighty. The character falls fast and feels grounded.
+- `slow_floaty`: Slow on the ground but light in the air. Movement feels relaxed and gentle.
+- `fast` : Quick and sharp. The character accelerates fast and reacts instantly.
